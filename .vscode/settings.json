@@ -1,0 +1,20 @@
+{
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
+    "python.analysis.logLevel": "Warning",
+    "python.autoComplete.addBrackets": true,
+    "python.formatting.provider": "black",
+    "python.languageServer": "Pylance",
+    "python.linting.mypyEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "autoDocstring.startOnNewLine": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.sortImports.path": "isort",
+    "python.linting.ignorePatterns": [
+        ".vscode/*.py",
+        "**/site-packages/**/*.py",
+        "**/*.pyx"
+    ]
+}

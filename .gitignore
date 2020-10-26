@@ -1,0 +1,10 @@
+.mypy_cache
+.pytest_cache
+.venv
+dist
+pytemplate/__pycache__
+pytemplate/algorithms/__pycache__
+pytemplate/functions_for_pytest_sample/__pycache__
+pytemplate/performance_upward/__pycache__
+pytemplate/performance_upward/build
+tests/__pycache__
