@@ -1,6 +1,5 @@
 .mypy_cache
 .pytest_cache
-.venv
 dist
 pytemplate/__pycache__
 pytemplate/algorithms/__pycache__
