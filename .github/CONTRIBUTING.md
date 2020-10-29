@@ -14,10 +14,10 @@ We use [GitHub flow](https://guides.github.com/introduction/flow/index.html), so
   6. Issue that pull request!
 
 
-## Report bugs using GitHub's [issues](https://github.com/tkhshtsh0917/patemplate/issues)
+## Report bugs using GitHub's [issues](https://github.com/tkhshtsh0917/pytemplate/issues)
 
 We use GitHub issues to track public bugs.<br>
-Report a bug by [opening a new issue](https://github.com/tkhshtsh0917/patemplate/issues/new) according to the [template](./ISSUE_TEMPLATE).
+Report a bug by [opening a new issue](https://github.com/tkhshtsh0917/pytemplate/issues/new) according to the [template](/ISSUE_TEMPLATE).
 
 
 ## Use a consistent coding style
