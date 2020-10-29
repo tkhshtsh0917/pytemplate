@@ -1,20 +1,28 @@
 {
-    "python.pythonPath": ".venv\\Scripts\\python.exe",
-    "python.analysis.logLevel": "Warning",
-    "python.autoComplete.addBrackets": true,
-    "python.formatting.provider": "black",
-    "python.languageServer": "Pylance",
-    "python.linting.mypyEnabled": true,
-    "python.testing.pytestEnabled": true,
+  "[python]": {
+    "editor.tabSize": 4,
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file",
-    "autoDocstring.startOnNewLine": true,
-    "python.analysis.completeFunctionParens": true,
-    "python.analysis.typeCheckingMode": "basic",
-    "python.sortImports.path": "isort",
-    "python.linting.ignorePatterns": [
-        ".vscode/*.py",
-        "**/site-packages/**/*.py",
-        "**/*.pyx"
-    ]
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.python": true
+    },
+  },
+  "python.pythonPath": ".venv\\Scripts\\python.exe",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.sortImports.path": "isort",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "black",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "mypy",
+  "python.linting.mypyArgs": [
+    "--config-file", "mypy.ini"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "-vv",
+    "--show-capture=all",
+    "tests"
+  ],
+  "autoDocstring.docstringFormat": "google",
 }
