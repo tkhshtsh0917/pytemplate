@@ -2,6 +2,7 @@ PyTemplate
 ==========
 
 My python3 project template.
+[Documention](https://tkhshtsh0917.github.io/pytemplate/)
 
 
 [![Python3 version][shield-python3]](#)
@@ -59,7 +60,7 @@ pytest .  # Run all unit tests written in `pytest`.
 pylint .  # Run the linter (`pylint`).
 ```
 
-You can find more detail in our [contributing guide](#).
+You can find more detail in our [contributing guide](/.github/CONTRIBUTING.md).
 
 
 License
