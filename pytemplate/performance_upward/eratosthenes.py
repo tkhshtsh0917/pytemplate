@@ -1,10 +1,18 @@
-import cython
+"""
+prime_eratosthenes
+"""
 
 
-def prime_eratosthenes(int num):
-    cdef:
-        int i, j
-        list prime_list, num_list
+def prime_eratosthenes(num):
+    """
+    prime_eratosthenes
+
+    Args:
+        num (int): Target Value.
+
+    Returns:
+        [int]: List of prime numbers between 0 and `num`.
+    """
 
     prime_list = []
     num_list = []
