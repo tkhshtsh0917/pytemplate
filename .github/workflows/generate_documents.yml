@@ -1,28 +1,26 @@
-name: Pytest-CI
+name: Generate-Documents
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
     branches:
-      - '**'
+    - 'main'
 
 jobs:
-  ci-tests:
-    name: ${{ matrix.os }} / ${{ matrix.python-version }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9]
+  gen-docs:
+    name: generate documents
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'auto generate documents')"
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        ref: 'main'
 
     - name: Setup Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.9
         architecture: 'x64'
 
     - name: Get Python Version
@@ -57,19 +55,27 @@ jobs:
       shell: bash
       run: python -m poetry install --no-interaction
 
-    - name: Lint Check
+    - name: Build Documents
       shell: bash
       run: |
-        python -m poetry run isort . --diff
-        python -m poetry run black . --check --diff
+        python -m poetry run sphinx-apidoc -f -o ./docs/generate .
+        python -m poetry run sphinx-build -b singlehtml ./docs/generate ./docs
 
-    - name: Run Tests
-      shell: bash
-      run: python -m poetry run pytest tests -v --cov=./pytemplate/functions_for_pytest_sample --cov-branch --cov-report=xml
+    - name: Deploy Configuration
+      run: |
+        mkdir ~/.ssh
+        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+        echo "${{ secrets.DOCUMENTS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+        chmod 400 ~/.ssh/id_rsa
 
-    - name: Upload Test Coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        fail_ci_if_error: true
+    - name: Push
+      env:
+        GITHUB_USER: "auto_deploy_user"
+        GITHUB_EMAIL: "auto_deploy@email.com"
+      run: |
+          git config --local user.name "${GITHUB_USER}"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+          git add docs
+          git commit -m "auto generate documents"
+          git push origin main
