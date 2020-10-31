@@ -1,11 +1,6 @@
 name: Pytest-CI
 
-on:
-  push:
-    paths-ignore:
-      - 'docs/**'
-    branches:
-      - '**'
+on: push
 
 jobs:
   ci-tests:
