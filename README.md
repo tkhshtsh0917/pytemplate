@@ -5,11 +5,14 @@ My python3 project template.
 [Documention](https://tkhshtsh0917.github.io/pytemplate/)
 
 
+[![Windows icon][shield-windows]](#)
+[![Apple icon][shield-mac]](#)
+[![Ubuntu icon][shield-ubuntu]](#)
+[![VSCode icon][shield-vscode]](#)
 [![Python3 version][shield-python3]](#)
 [![Poetry version][shield-poetry]](#)
 [![Coverage report][codecov]](#)
 [![CI status][pytest-ci]](#)
-[![Licensed][shield-license]](#)
 
 
 Table of Contents
@@ -71,8 +74,11 @@ Copyright &copy; 2020, Toshinori Takahashi
 
 [python3]:        https://www.python.org
 [poetry]:         https://python-poetry.org
-[shield-python3]: https://img.shields.io/badge/Python3-v.3.9.0-blue
-[shield-poetry]:  https://img.shields.io/badge/Poetry-v.1.1.4-blue
+[shield-windows]: https://img.shields.io/badge/-Windows-0078D6.svg?logo=windows&style=flat
+[shield-mac]:     https://img.shields.io/badge/-MacOS-FFFFFF.svg?logo=apple&style=flat
+[shield-ubuntu]:  https://img.shields.io/badge/-Ubuntu-6F52B5.svg?logo=ubuntu&style=flat
+[shield-vscode]:  https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&style=flat
+[shield-python3]: https://img.shields.io/badge/Python3-3.7 | 3.8 | 3.9-blue?logo=python&style=flat
+[shield-poetry]:  https://img.shields.io/badge/Poetry-1.1-blue
 [codecov]:        https://codecov.io/gh/tkhshtsh0917/pytemplate/branch/main/graph/badge.svg?token=CF1Q6ANFPD
 [pytest-ci]:      https://github.com/tkhshtsh0917/pytemplate/workflows/Pytest-CI/badge.svg
-[shield-license]: https://img.shields.io/github/license/tkhshtsh0917/pytemplate
