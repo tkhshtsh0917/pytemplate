@@ -78,7 +78,7 @@ Copyright &copy; 2020, Toshinori Takahashi
 [shield-mac]:     https://img.shields.io/badge/-MacOS-FFFFFF.svg?logo=apple&style=flat
 [shield-ubuntu]:  https://img.shields.io/badge/-Ubuntu-6F52B5.svg?logo=ubuntu&style=flat
 [shield-vscode]:  https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&style=flat
-[shield-python3]: https://img.shields.io/badge/Python3-3.7 | 3.8 | 3.9-blue?logo=python&style=flat
+[shield-python3]: https://img.shields.io/badge/Python3-3.7%20|%203.8%20|%203.9%20-blue?logo=python&style=flat
 [shield-poetry]:  https://img.shields.io/badge/Poetry-1.1-blue
 [codecov]:        https://codecov.io/gh/tkhshtsh0917/pytemplate/branch/main/graph/badge.svg?token=CF1Q6ANFPD
 [pytest-ci]:      https://github.com/tkhshtsh0917/pytemplate/workflows/Pytest-CI/badge.svg
