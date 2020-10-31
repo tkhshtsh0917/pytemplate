@@ -3,6 +3,10 @@ name = "pytemplate"
 version = "0.1.0"
 description = "python template project"
 authors = ["tkhshtsh0917 <puredreamdrum@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/tkhshtsh0917/pytemplate"
+repository = "https://github.com/tkhshtsh0917/pytemplate"
+documentation = "https://tkhshtsh0917.github.io/pytemplate/"
 
 [tool.poetry.dependencies]
 python = "^3.6"
