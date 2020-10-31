@@ -7,8 +7,8 @@ My python3 project template.
 
 [![Python3 version][shield-python3]](#)
 [![Poetry version][shield-poetry]](#)
-[![GitHub issues][shield-issues]](#)
-[![GitHub pull requests][shield-prs]](#)
+[![Coverage report][codecov]](#)
+[![CI status][pytest-ci]](#)
 [![Licensed][shield-license]](#)
 
 
@@ -73,6 +73,6 @@ Copyright &copy; 2020, Toshinori Takahashi
 [poetry]:         https://python-poetry.org
 [shield-python3]: https://img.shields.io/badge/Python3-v.3.9.0-blue
 [shield-poetry]:  https://img.shields.io/badge/Poetry-v.1.1.4-blue
-[shield-issues]:  https://img.shields.io/github/issues/tkhshtsh0917/pytemplate
-[shield-prs]:     https://img.shields.io/github/issues-pr/tkhshtsh0917/pytemplate
+[codecov]:        https://codecov.io/gh/tkhshtsh0917/pytemplate/branch/main/graph/badge.svg?token=CF1Q6ANFPD
+[pytest-ci]:      https://github.com/tkhshtsh0917/pytemplate/workflows/Pytest-CI/badge.svg
 [shield-license]: https://img.shields.io/github/license/tkhshtsh0917/pytemplate
