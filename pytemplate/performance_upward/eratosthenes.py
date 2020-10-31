@@ -1,5 +1,5 @@
 """
-prime_eratosthenes
+eratosthenes
 """
 
 
@@ -8,7 +8,7 @@ def prime_eratosthenes(num):
     prime_eratosthenes
 
     Args:
-        num (int): Target Value.
+        num (int): Target Value. [TEST PRINT]
 
     Returns:
         [int]: List of prime numbers between 0 and `num`.

@@ -1,0 +1,13 @@
+/docs/_static merge=ours
+/docs/.doctrees merge=ours
+/docs/.buildinfo merge=ours
+/docs/index.html merge=ours
+/docs/objects.inv merge=ours
+/docs/generate/make.bat merge=ours
+/docs/generate/Makefile merge=ours
+/docs/generate/modules.rst merge=ours
+/docs/generate/pytemplate.algorithms.rst merge=ours
+/docs/generate/pytemplate.functions_for_pytest_sample.rst merge=ours
+/docs/generate/pytemplate.performance_upward.rst merge=ours
+/docs/generate/pytemplate.rst merge=ours
+/docs/generate/tests.rst merge=ours
