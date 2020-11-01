@@ -2,7 +2,6 @@
 request
 """
 
-import json
 import requests
 from starlette.status import HTTP_200_OK
 
