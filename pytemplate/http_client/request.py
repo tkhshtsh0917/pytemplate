@@ -15,4 +15,8 @@ def request():
         data = response.json()
 
         if data["status"] == HTTP_200_OK:
-            _ = [print(msg["text"]) for msg in data["contents"]]
+            with open("output.txt", mode="w", encoding="utf-8") as file:
+                for msg in data["contents"]:
+                    print(msg["text"])
+                    file.write(msg["text"])
+                    file.write("\n")
