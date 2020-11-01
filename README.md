@@ -11,7 +11,6 @@ My python3 project template.
 [![VSCode icon][shield-vscode]](#)
 [![Python3 version][shield-python3]](#)
 [![Poetry version][shield-poetry]](#)
-[![Coverage report][codecov]](#)
 [![CI status][pytest-ci]](#)
 
 
@@ -80,5 +79,4 @@ Copyright &copy; 2020, Toshinori Takahashi
 [shield-vscode]:  https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&style=flat
 [shield-python3]: https://img.shields.io/badge/Python3-3.7%20|%203.8%20|%203.9%20-blue?logo=python&style=flat
 [shield-poetry]:  https://img.shields.io/badge/Poetry-1.1-blue
-[codecov]:        https://codecov.io/gh/tkhshtsh0917/pytemplate/branch/main/graph/badge.svg?token=CF1Q6ANFPD
 [pytest-ci]:      https://github.com/tkhshtsh0917/pytemplate/workflows/Pytest-CI/badge.svg
