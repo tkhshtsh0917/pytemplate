@@ -9,6 +9,7 @@ Subpackages
 
    pytemplate.algorithms
    pytemplate.functions_for_pytest_sample
+   pytemplate.http_client
    pytemplate.performance_upward
 
 Submodules
