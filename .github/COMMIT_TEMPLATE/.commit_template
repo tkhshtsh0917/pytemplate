@@ -1,0 +1,31 @@
+[#Issue No.][Prefix] message.
+
+# ==== Format ====
+# [#Issue No.][Prefix] message.
+# 
+# ```
+# Ex.) [#1][Fix] Fix a bug in #1.
+# ```
+# 
+# ==== Issue No. ====
+# A reference to an `issue` on GitHub.
+# If the corresponding `issue` does not exist, enter [#-].
+# 
+# ==== Prefix ====
+# [Feature]     when add a new feature or file
+# [Update]      when fix a feature that is not a bug
+# [Change]      when fix of due to specification changes
+# [Refactor]    when refactoring existing code
+# [Disable]     when commenting out a part of existing code
+# [Remove]      when remove a part of the existing code
+# [Delete]      when delete existing a file
+# [Fix]         when a bug fix
+# [Rename]      when rename existing a file
+# [Move]        when move existing a file
+# [Upgrade]     when upgrade a major version
+# [Revert]      when to undo a modification
+# [Docs]        when modify only the document
+# [Style]       when modify only the appearance, such as whitespace, semicolons, lines, coding formatting, etc.
+# [Performance] when modify for improve performance
+# [Test]        when add a test or fix an incorrect test
+# [Auto]        when you commit auto-generated files in tools or libraries
