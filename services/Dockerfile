@@ -12,4 +12,4 @@ COPY mock.py .
 
 EXPOSE 1043
 
-CMD ["uvicorn", "mock:app", "--reload", "--host", "0.0.0.0", "--port", "1043"]
+CMD ["uvicorn", "mock:api", "--reload", "--host", "localhost", "--port", "1043"]
