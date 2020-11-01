@@ -61,11 +61,4 @@ jobs:
 
     - name: Run Tests
       shell: bash
-      run: python -m poetry run pytest tests -v --cov=./pytemplate/functions_for_pytest_sample --cov-branch --cov-report=xml
-
-    - name: Upload Test Coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        fail_ci_if_error: true
+      run: python -m poetry run pytest tests -v --cov=./pytemplate/functions_for_pytest_sample --cov-branch
