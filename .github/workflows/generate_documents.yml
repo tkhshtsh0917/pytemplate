@@ -9,7 +9,7 @@ jobs:
   gen-docs:
     name: generate documents
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[Auto Deploy] Generate documents.')"
+    if: "!contains(github.event.head_commit.message, '[Auto] Generate documents.')"
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -76,5 +76,5 @@ jobs:
           git config --local user.email "${GITHUB_EMAIL}"
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
           git add docs
-          git commit -m "[Auto Deploy] Generate documents."
+          git commit -m "[Auto] Generate documents."
           git push origin main
