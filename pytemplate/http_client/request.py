@@ -10,7 +10,7 @@ def request():
     """
     request
     """
-    response = requests.get("http://localhost:1043/api/mock")
+    response = requests.get("http://localhost:8000/api/mock")
     if response.status_code == HTTP_200_OK:
         data = response.json()
 

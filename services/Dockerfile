@@ -2,14 +2,14 @@ FROM python:3.9-alpine
 
 WORKDIR /app
 
+ADD . /app
+
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache build-base && \
     pip3 install --no-cache-dir uvicorn fastapi && \
     apk del --purge build-base
 
-COPY mock.py .
+EXPOSE 8000
 
-EXPOSE 1043
-
-CMD ["uvicorn", "mock:api", "--reload", "--host", "localhost", "--port", "1043"]
+CMD ["uvicorn", "mock:api", "--reload", "--host", "localhost", "--port", "8000"]
