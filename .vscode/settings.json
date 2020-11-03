@@ -20,4 +20,5 @@
   ],
   "python.testing.pytestEnabled": true,
   "autoDocstring.docstringFormat": "google",
+  "python.pythonPath": ".venv\\Scripts\\python.exe",
 }

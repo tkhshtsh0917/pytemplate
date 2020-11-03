@@ -26,6 +26,21 @@ def parser(response, output_name):
                     file.write("\n")
 
 
+def get(pattern, output_name):
+    """
+    get
+
+    Args:
+        pattern (str): Access point pattern.
+        output_name (str): Output file name.
+    """
+    url = "http://localhost:8000/api/mock/"
+
+    url.join(pattern)
+    response = requests.get(url)
+    parser(response, output_name)
+
+
 def request():
     """
     request
@@ -36,19 +51,14 @@ def request():
         mode = sys.argv[1]
 
     if mode == "CI":
-        URL = "http://localhost:8000/api/mock/"
-
         # Server 01
-        response = requests.get(URL + "ptn01")
-        parser(response=response, output_name="output01.txt")
+        get("ptn01", "output01.txt")
 
         # Server 02
-        response = requests.get(URL + "ptn02")
-        parser(response=response, output_name="output02.txt")
+        get("ptn02", "output02.txt")
 
         # Server 03
-        response = requests.get(URL + "ptn03")
-        parser(response=response, output_name="output03.txt")
+        get("ptn03", "output03.txt")
 
     else:
         print("Hello, world")
