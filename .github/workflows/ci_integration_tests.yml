@@ -1,24 +1,32 @@
-name: Pytest-CI
+name: CI Interaction Tests
 
 on: push
 
 jobs:
-  ci-tests:
-    name: ${{ matrix.os }} / ${{ matrix.python-version }}
-    runs-on: ${{ matrix.os }}
+  ci-interaction-tests:
+    name: Interaction Tests
+    runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[Auto] Generate documents.')"
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9]
+
+    services:
+      mock-api:
+        image: ghcr.io/tkhshtsh0917/pytemplate/service-mock-fastapi:latest
+        credentials:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_PASSWORD }}
+        ports:
+          -8000:8000
+        options: >-
+          --network=host
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Setup Python ${{ matrix.python-version }}
+    - name: Setup Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.9
         architecture: 'x64'
 
     - name: Get Python Version
@@ -53,12 +61,12 @@ jobs:
       run: python -m poetry install --no-interaction
       if: steps.cache.outputs.cache-hit != 'true'
 
-    - name: Lint Check
+    - name: Run Integration Tests
       shell: bash
-      run: |
-        python -m poetry run isort . --diff
-        python -m poetry run black . --check --diff
+      run: python -m poetry run req CI
 
-    - name: Run Tests
-      shell: bash
-      run: python -m poetry run pytest tests -v --cov=./pytemplate/functions_for_pytest_sample --cov-branch
+    - name: Output Files Upload As Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: output_data
+        path: ./output*.txt
