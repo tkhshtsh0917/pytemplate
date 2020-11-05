@@ -50,7 +50,7 @@ exec git diff-index --check --cached $against --
 
 # master, develop branchでのcommitを禁止
 BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`
-if test $BRANCH_NAME = master -o $BRANCH_NAME = develop; then
+if test $BRANCH_NAME = main -o $BRANCH_NAME = develop; then
   echo "We cannot commit on ${BRANCH_NAME} branch."
   exit 1
 fi
