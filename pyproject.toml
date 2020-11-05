@@ -9,7 +9,7 @@ repository = "https://github.com/tkhshtsh0917/pytemplate"
 documentation = "https://tkhshtsh0917.github.io/pytemplate/"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 networkx = "^2.5"
 ortools = "^8.0.8283"
 fastapi = "^0.61.1"
