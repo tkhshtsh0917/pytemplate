@@ -140,9 +140,9 @@ def knapsack():
     print("Packed_weights: {}\n".format(packed_weights))
 
 
-def maltiple_knapsacks():
+def multiple_knapsacks():
     """
-    maltiple_knapsacks
+    multiple_knapsacks
     """
     weights = [48, 30, 42, 36, 36, 48, 42, 42, 36, 24, 30, 30, 42, 36, 36]
     values = [10, 30, 25, 50, 35, 30, 15, 40, 30, 35, 45, 10, 20, 30, 25]

@@ -10,4 +10,5 @@ pytemplate/performance_upward/build
 /docs/.buildinfo
 /docs/objects.inv
 /docs/generate/module.rst
-/docs/generate/pytemplate.*.rst
+/docs/generate/pytemplate*.rst
+/docs/generate/tests*.rst
