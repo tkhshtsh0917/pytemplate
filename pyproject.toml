@@ -42,8 +42,10 @@ multi_line_output = 3
 [tool.poetry.scripts]
 main = "pytemplate:main"
 knapsack = "pytemplate:knapsack"
-knapsacks = "pytemplate:maltiple_knapsacks"
+knapsacks = "pytemplate:multiple_knapsacks"
 binpacking = "pytemplate:bin_packing"
 primes = "pytemplate:prime_eratosthenes"
 search = "pytemplate:dijkstra_search"
 req = "pytemplate:request"
+check_alloc = "pytemplate:check_allocation"
+check_leak = "pytemplate:check_memoryleak"
