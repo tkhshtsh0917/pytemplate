@@ -1,0 +1,12 @@
+[
+    {"id": 351, "type": "general", "setup": "Why did the worker get fired from the orange juice factory?", "punchline": "Lack of concentration.", "list": ["1", "2"]},
+    {"id": 69, "type": "general", "setup": "I got hit in the head by a soda can, but it didn't hurt that much...", "punchline": "It was a soft drink.", "list": ["2", "3"]},
+    {"id": 306, "type": "general", "setup": "Where does Napoleon keep his armies?", "punchline": "In his sleevies.", "list": ["1", "3"]},
+    {"id": 375, "type": "general", "setup": "Why does Superman get invited to dinners?", "punchline": "Because he is a Supperhero.", "list": ["1", "2"]},
+    {"id": 364, "type": "general", "setup": "Why do pirates not know the alphabet?", "punchline": "They always get stuck at \"C\".", "list": ["2", "3"]},
+    {"id": 41, "type": "general", "setup": "I just watched a documentary about beavers.", "punchline": "It was the best dam show I ever saw", "list": ["1", "3"]},
+    {"id": 23, "type": "programming", "setup": "Why do programmers always mix up Halloween and Christmas?", "punchline": "Because Oct 31 == Dec 25", "list": ["1", "2"]},
+    {"id": 387, "type": "general", "setup": "My older brother always tore the last pages of my comic books, and never told me why.", "punchline": "I had to draw my own conclusions.", "list": ["2", "3"]},
+    {"id": 64, "type": "general", "setup": "Did you hear about the hungry clock?", "punchline": "It went back four seconds.", "list": ["1", "3"]},
+    {"id": 223, "type": "general", "setup": "What do you call a nervous javelin thrower?", "punchline": "Shakespeare.", "list": ["1", "2", "3"]}
+]
