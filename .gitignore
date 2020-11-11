@@ -1,3 +1,4 @@
+/.venv
 /.mypy_cache
 /.pytest_cache
 /dist
@@ -9,6 +10,6 @@ pytemplate/performance_upward/build
 /docs/.doctrees
 /docs/.buildinfo
 /docs/objects.inv
-/docs/generate/module.rst
+/docs/generate/modules.rst
 /docs/generate/pytemplate*.rst
 /docs/generate/tests*.rst

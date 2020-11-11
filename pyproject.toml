@@ -9,7 +9,7 @@ repository = "https://github.com/tkhshtsh0917/pytemplate"
 documentation = "https://tkhshtsh0917.github.io/pytemplate/"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 networkx = "^2.5"
 ortools = "^8.0.8283"
 fastapi = "^0.61.1"
@@ -26,6 +26,7 @@ Sphinx = "^3.2.1"
 pytest-mock = "^3.3.1"
 sphinx-rtd-theme = "^0.5.0"
 pytest-cov = "^2.10.1"
+pre-commit = "^2.8.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -47,5 +48,3 @@ binpacking = "pytemplate:bin_packing"
 primes = "pytemplate:prime_eratosthenes"
 search = "pytemplate:dijkstra_search"
 req = "pytemplate:request"
-check_alloc = "pytemplate:check_allocation"
-check_leak = "pytemplate:check_memoryleak"

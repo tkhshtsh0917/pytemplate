@@ -2,15 +2,15 @@
 
 # ==== Format ====
 # [#Issue No.][Prefix] message.
-# 
+#
 # ```
 # Ex.) [#1][Fix] Fix a bug in #1.
 # ```
-# 
+#
 # ==== Issue No. ====
 # A reference to an `issue` on GitHub.
 # If the corresponding `issue` does not exist, enter [#-].
-# 
+#
 # ==== Prefix ====
 # [Feature]     when add a new feature or file
 # [Update]      when fix a feature that is not a bug

@@ -54,7 +54,7 @@ In that case, please use the `poetry add` or `poetry add -D` command.
 Contribution
 ------------
 
-To contribute to this project, clone this repogitory locally and commit your code on a separate branch. 
+To contribute to this project, clone this repogitory locally and commit your code on a separate branch.
 Please write unit tests for your code, and run the linter before opening a pull-request.
 
 ```sh

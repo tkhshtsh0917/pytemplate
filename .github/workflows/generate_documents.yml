@@ -16,7 +16,7 @@ jobs:
       with:
         ref: main
 
-    - name: Setup Python ${{ matrix.python-version }}
+    - name: Setup Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
@@ -57,7 +57,7 @@ jobs:
     - name: Build Documents
       shell: bash
       run: |
-        python -m poetry run sphinx-apidoc -f -o ./docs/generate .
+        python -m poetry run sphinx-apidoc -f -o ./docs/generate ./pytemplate
         python -m poetry run sphinx-build -b singlehtml ./docs/generate ./docs
 
     - name: Deploy Configuration
