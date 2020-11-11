@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMMIT_TEMPLATE=`git config commit.template`
-if [ $COMMIT_TEMPLATE != '.github\\COMMIT_TEMPLATE\\.commit_template' ]; then
+if [ -z $COMMIT_TEMPLATE ]; then
   git config --local commit.template .github\\COMMIT_TEMPLATE\\.commit_template
   echo "Updated commit message template."
 fi
