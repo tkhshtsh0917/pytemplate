@@ -6,10 +6,3 @@
 pytemplate/performance_upward/build
 /.coverage
 /coverage.xml
-/docs/_sources
-/docs/.doctrees
-/docs/.buildinfo
-/docs/objects.inv
-/docs/generate/modules.rst
-/docs/generate/pytemplate*.rst
-/docs/generate/tests*.rst
