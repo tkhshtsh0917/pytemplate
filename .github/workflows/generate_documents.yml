@@ -9,7 +9,7 @@ jobs:
   gen-docs:
     name: Generate Documents
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[Auto] Generate documents.')"
+    if: "!contains(github.event.head_commit.message, 'deploy:')"
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -57,24 +57,12 @@ jobs:
     - name: Build Documents
       shell: bash
       run: |
-        python -m poetry run sphinx-apidoc -f -o ./docs/generate ./pytemplate
-        python -m poetry run sphinx-build -b singlehtml ./docs/generate ./docs
+        python -m poetry run sphinx-apidoc -f -o ./docs ./pytemplate
+        mkdir ./docs/build
+        python -m poetry run sphinx-build -b html ./docs ./docs/build
 
-    - name: Deploy Configuration
-      run: |
-        mkdir ~/.ssh
-        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-        echo "${{ secrets.DOCUMENTS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
-        chmod 400 ~/.ssh/id_rsa
-
-    - name: Push
-      env:
-        GITHUB_USER: "auto_deploy_user"
-        GITHUB_EMAIL: "auto_deploy@email.com"
-      run: |
-          git config --local user.name "${GITHUB_USER}"
-          git config --local user.email "${GITHUB_EMAIL}"
-          git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
-          git add docs
-          git commit -m "[Auto] Generate documents."
-          git push origin main
+    - name: Deploy GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./docs/build
