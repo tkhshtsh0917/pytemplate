@@ -1,0 +1,29 @@
+pytemplate.read\_json package
+=============================
+
+Submodules
+----------
+
+pytemplate.read\_json.main module
+---------------------------------
+
+.. automodule:: pytemplate.read_json.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pytemplate.read\_json.request module
+------------------------------------
+
+.. automodule:: pytemplate.read_json.request
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pytemplate.read_json
+   :members:
+   :undoc-members:
+   :show-inheritance:
