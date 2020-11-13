@@ -6,3 +6,7 @@
 pytemplate/performance_upward/build
 /.coverage
 /coverage.xml
+/docs/*
+!/docs/build
+!/docs/conf.py
+!/docs/index.rst
