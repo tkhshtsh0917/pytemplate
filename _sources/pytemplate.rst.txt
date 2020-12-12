@@ -16,6 +16,14 @@ Subpackages
 Submodules
 ----------
 
+pytemplate.expand\_and\_eval module
+-----------------------------------
+
+.. automodule:: pytemplate.expand_and_eval
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pytemplate.main module
 ----------------------
 
