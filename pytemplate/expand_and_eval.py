@@ -1,40 +1,48 @@
 # pylint:disable=eval-used
 
 """
-expand_and_eval
+expand_and_evaluate
 """
 
+from typing import Set
+
+
 QUOTE: str = '"'
+BOOLEAN_STRING_SET: Set = {"True", "False"}
 
 
 def get_evaluated_value(value: str):
     """get_evaluated_value"""
 
     if value == "AAA":
-        return "a"
-
-    if value == "BBB":
         return "x"
 
+    if value == "BBB":
+        return "y"
+
     if value == "CCC":
-        return "c"
+        return "z"
 
     return None
 
 
-def expand_expression(expression):
-    """expand_expression"""
+def expand_expression_recursively(expression):
+    """expand_expression_recursively"""
 
     [left, operator_symbol, right] = expression
-    boolean_string_set = {"True", "False"}
     result = False
     get_result = True
 
     if isinstance(left, list):
-        left, recursion_result = expand_expression(left)
+        left, recursion_result = expand_expression_recursively(left)
         result = result or recursion_result
-    else:
-        if not left in boolean_string_set:
+
+    if isinstance(right, list):
+        right, recursion_result = expand_expression_recursively(right)
+        result = result or recursion_result
+
+    if isinstance(left, str):
+        if not left in BOOLEAN_STRING_SET:
             evaluated_value = get_evaluated_value(left)
 
             if evaluated_value is None:
@@ -43,103 +51,103 @@ def expand_expression(expression):
                 result = True
                 left = evaluated_value
 
-    if isinstance(right, list):
-        right, recursion_result = expand_expression(right)
-        result = result or recursion_result
-
     return [left, operator_symbol, right, get_result], result
 
 
-def evaluate_expression(expression):
-    """evaluate_expression"""
+def evaluate_expression_recursively(expression):
+    """evaluate_expression_recursively"""
 
     [left, operator_symbol, right, result] = expression
 
     if isinstance(left, list):
-        left, recursion_result = evaluate_expression(left)
+        left, recursion_result = evaluate_expression_recursively(left)
         result = result and recursion_result
 
     if isinstance(right, list):
-        right, recursion_result = evaluate_expression(right)
+        right, recursion_result = evaluate_expression_recursively(right)
         result = result and recursion_result
 
     if result:
-        expression = " ".join(
-            [QUOTE + left + QUOTE, operator_symbol, QUOTE + right + QUOTE]
-        )
-        return str(eval(expression)), True
+        if not left in BOOLEAN_STRING_SET:
+            left = QUOTE + left + QUOTE
+
+        if not right in BOOLEAN_STRING_SET:
+            right = QUOTE + right + QUOTE
+
+        expression = str(eval(" ".join([left, operator_symbol, right])))
     else:
         expression = [left, operator_symbol, right]
-        return expression, False
+
+    return expression, result
 
 
 if __name__ == "__main__":
-    expr_tree = [
+    expr = [
         ["AAA", "==", "a"],
         "and",
         [["BBB", "==", "b"], "or", ["CCC", "!=", "c"]],
     ]
 
-    expanded_expr_tree, expand_result = expand_expression(expr_tree)
-    print(f"expanded_expr_tree: {expanded_expr_tree}")
+    expanded, expand_result = expand_expression_recursively(expr)
+    print(f"expanded: {expanded}")
     print(f"expand_result: {expand_result}\n")
 
-    answer, evaluate_result = evaluate_expression(expanded_expr_tree)
+    answer, evaluate_result = evaluate_expression_recursively(expanded)
     print(f"answer: {answer}")
     print(f"evaluate_result: {evaluate_result}\n")
 
     print("-" * 80)
 
-    answer_tree = ["True", "and", ["True", "or", ["CCC", "!=", "c"]]]
+    expr = ["True", "and", ["True", "or", ["CCC", "!=", "c"]]]
 
-    expanded_expr_tree, expand_result = expand_expression(answer_tree)
-    print(f"expanded_expr_tree: {expanded_expr_tree}")
+    expanded, expand_result = expand_expression_recursively(expr)
+    print(f"expanded: {expanded}")
     print(f"expand_result: {expand_result}\n")
 
-    answer, evaluate_result = evaluate_expression(expanded_expr_tree)
+    answer, evaluate_result = evaluate_expression_recursively(expanded)
     print(f"answer: {answer}")
     print(f"evaluate_result: {evaluate_result}\n")
 
     print("-" * 80)
 
-    answer_tree = [
+    expr = [
         "True",
         "and",
         [["BBB", "==", "b"], "or", ["CCC", "!=", "c"]],
     ]
 
-    expanded_expr_tree, expand_result = expand_expression(answer_tree)
-    print(f"expanded_expr_tree: {expanded_expr_tree}")
+    expanded, expand_result = expand_expression_recursively(expr)
+    print(f"expanded: {expanded}")
     print(f"expand_result: {expand_result}\n")
 
-    answer, evaluate_result = evaluate_expression(expanded_expr_tree)
+    answer, evaluate_result = evaluate_expression_recursively(expanded)
     print(f"answer: {answer}")
     print(f"evaluate_result: {evaluate_result}\n")
 
     print("-" * 80)
 
-    answer_tree = [
+    expr = [
         ["AAA", "==", "a"],
         "and",
         ["True", "or", ["CCC", "!=", "c"]],
     ]
 
-    expanded_expr_tree, expand_result = expand_expression(answer_tree)
-    print(f"expanded_expr_tree: {expanded_expr_tree}")
+    expanded, expand_result = expand_expression_recursively(expr)
+    print(f"expanded: {expanded}")
     print(f"expand_result: {expand_result}\n")
 
-    answer, evaluate_result = evaluate_expression(expanded_expr_tree)
+    answer, evaluate_result = evaluate_expression_recursively(expanded)
     print(f"answer: {answer}")
     print(f"evaluate_result: {evaluate_result}\n")
 
     print("-" * 80)
 
-    answer_tree = [["AAA", "==", "a"], "and", "True"]
+    expr = [["AAA", "==", "a"], "and", "True"]
 
-    expanded_expr_tree, expand_result = expand_expression(answer_tree)
-    print(f"expanded_expr_tree: {expanded_expr_tree}")
+    expanded, expand_result = expand_expression_recursively(expr)
+    print(f"expanded: {expanded}")
     print(f"expand_result: {expand_result}\n")
 
-    answer, evaluate_result = evaluate_expression(expanded_expr_tree)
+    answer, evaluate_result = evaluate_expression_recursively(expanded)
     print(f"answer: {answer}")
     print(f"evaluate_result: {evaluate_result}\n")
