@@ -14,7 +14,7 @@ def get_evaluated_value(value: str):
         return "a"
 
     if value == "BBB":
-        return "b"
+        return "x"
 
     if value == "CCC":
         return "c"
@@ -22,14 +22,11 @@ def get_evaluated_value(value: str):
     return None
 
 
-def expand_expression(expression_tree):
+def expand_expression(expression):
     """expand_expression"""
 
-    left, symbol, right = (
-        expression_tree[0],
-        expression_tree[1],
-        expression_tree[2],
-    )
+    [left, operator_symbol, right] = expression
+    boolean_string_set = {"True", "False"}
     result = False
     get_result = True
 
@@ -37,7 +34,7 @@ def expand_expression(expression_tree):
         left, recursion_result = expand_expression(left)
         result = result or recursion_result
     else:
-        if not left in {"True", "False"}:
+        if not left in boolean_string_set:
             evaluated_value = get_evaluated_value(left)
 
             if evaluated_value is None:
@@ -50,16 +47,13 @@ def expand_expression(expression_tree):
         right, recursion_result = expand_expression(right)
         result = result or recursion_result
 
-    return [left, symbol, right, get_result], result
+    return [left, operator_symbol, right, get_result], result
 
 
-def evaluate_expression(expression_tree):
+def evaluate_expression(expression):
     """evaluate_expression"""
 
-    left = expression_tree[0]
-    symbol = expression_tree[1]
-    right = expression_tree[2]
-    result = expression_tree[3]
+    [left, operator_symbol, right, result] = expression
 
     if isinstance(left, list):
         left, recursion_result = evaluate_expression(left)
@@ -71,11 +65,11 @@ def evaluate_expression(expression_tree):
 
     if result:
         expression = " ".join(
-            [QUOTE + left + QUOTE, symbol, QUOTE + right + QUOTE]
+            [QUOTE + left + QUOTE, operator_symbol, QUOTE + right + QUOTE]
         )
         return str(eval(expression)), True
     else:
-        expression = [left, symbol, right]
+        expression = [left, operator_symbol, right]
         return expression, False
 
 
