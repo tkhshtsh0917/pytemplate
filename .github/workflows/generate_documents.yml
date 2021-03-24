@@ -70,4 +70,4 @@ jobs:
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
           git add ./docs/build
           git commit -m "ci: auto build documents."
-          git push origin gh-pages
+          git push origin HEAD:gh-pages
