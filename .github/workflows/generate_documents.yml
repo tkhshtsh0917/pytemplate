@@ -53,10 +53,12 @@ jobs:
         mkdir ./docs/build
         python -m poetry run sphinx-build -b html ./docs ./docs/build
 
-    - name: Deploy GitHub Pages
+    - name: Checkout `gh-pades`
       uses: actions/checkout@v2
       with:
         ref: gh-pages
+
+    - name: Deploy GitHub Pages
       env:
         GITHUB_USER: "deploy_user"
         GITHUB_EMAIL: "deploy_user@example.com"
