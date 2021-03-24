@@ -1,20 +1,15 @@
 name: Generate Documents
 
-on:
-  push:
-    branches:
-    - main
+on: push
 
 jobs:
   gen-docs:
     name: Generate Documents
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'deploy:')"
+    if: "!contains(github.event.head_commit.message, 'ci: auto build documents.')"
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-      with:
-        ref: main
 
     - name: Setup Python 3.9
       uses: actions/setup-python@v2
@@ -27,12 +22,9 @@ jobs:
       shell: bash
       run: echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info))")
 
-    - name: Bootstrap Poetry
+    - name: Install Poetry
       shell: bash
-      run: |
-        python -m ensurepip
-        python -m pip install --upgrade pip
-        python -m pip install poetry
+      run: python -m pip install poetry
 
     - name: Setup Cache Poetry Dependencies
       uses: actions/cache@v1
@@ -61,8 +53,21 @@ jobs:
         mkdir ./docs/build
         python -m poetry run sphinx-build -b html ./docs ./docs/build
 
+    - name: Deploy Configuration
+      run: |
+          mkdir ./.ssh
+          ssh-keyscan -t rsa github.com >> ./.ssh/known_hosts
+          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ./.ssh/id_rsa
+          chmod 400 ./.ssh/id_rsa
+
     - name: Deploy GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./docs/build
+      env:
+        GITHUB_USER: "deploy_user"
+        GITHUB_EMAIL: "deploy_user@example.com"
+      run: |
+          git config --local user.name "${GITHUB_USER}"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+          git add ./docs/build
+          git commit -m "ci: auto build documents."
+          git push origin gh-pages
