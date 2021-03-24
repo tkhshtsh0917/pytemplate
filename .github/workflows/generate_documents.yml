@@ -53,14 +53,10 @@ jobs:
         mkdir ./docs/build
         python -m poetry run sphinx-build -b html ./docs ./docs/build
 
-    - name: Deploy Configuration
-      run: |
-          mkdir ~/.ssh
-          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/gh_pages_id_rsa
-          chmod 400 ~/.ssh/gh_pages_id_rsa
-
     - name: Deploy GitHub Pages
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
       env:
         GITHUB_USER: "deploy_user"
         GITHUB_EMAIL: "deploy_user@example.com"
@@ -70,4 +66,4 @@ jobs:
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
           git add ./docs/build
           git commit -m "ci: auto build documents."
-          git push origin HEAD:gh-pages
+          git push
