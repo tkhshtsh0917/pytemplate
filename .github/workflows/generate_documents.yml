@@ -55,10 +55,10 @@ jobs:
 
     - name: Deploy Configuration
       run: |
-          mkdir ./.ssh
-          ssh-keyscan -t rsa github.com >> ./.ssh/known_hosts
-          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ./.ssh/id_rsa
-          chmod 400 ./.ssh/id_rsa
+          mkdir ~/.ssh
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/gh_pages_id_rsa
+          chmod 400 ~/.ssh/gh_pages_id_rsa
 
     - name: Deploy GitHub Pages
       env:
